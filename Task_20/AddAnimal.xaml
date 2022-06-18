@@ -1,0 +1,67 @@
+﻿<Window x:Class="Task_20.AddAnimal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task_20"
+        mc:Ignorable="d"
+        Title="Window1" 
+        Height="200" 
+        Width="350"
+        ResizeMode="NoResize"
+        >
+    <Grid VerticalAlignment="Bottom">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        Margin="30 0 0 10">
+                <TextBlock Text="Тип животного :"
+                           Margin="0 0 39 0"/>
+                <TextBox Text="{Binding ViewAnimals}"
+                         Width="120"/>
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        Margin="30 0 0 10">
+                <TextBlock Text="Кличка животного :"
+                           Margin="0 0 20 0"/>
+                <TextBox Text="{Binding BreedAnimal}"
+                         Width="120"/>
+                
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        Margin="30 0 0 10">
+                <TextBlock Text="Порода :"
+                           Margin="0 0 80 0"/>
+                <TextBox Text="{Binding AnimalName}"
+                         Width="120"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        HorizontalAlignment="Left"
+                        Margin="30 0 0 10">
+                <TextBlock Text="Особенности :"
+                           Margin="0 0 49 0"/>
+                <TextBox Text="{Binding FeaturesAnimal}"
+                         Width="120"/>
+            </StackPanel>
+                   
+            <Grid Margin=" 15 10 15 10">
+                
+                <Button Command="{Binding AddCommand}" 
+                        Width="60"
+                        HorizontalAlignment="Right" 
+                        Content="Добавить" 
+                        Click="Button_Click"/>
+                
+                <Button Content="Отмена" 
+                        Width="60" 
+                        HorizontalAlignment="Left"
+                        Click="Button_Click"/>
+            </Grid>
+
+           
+        </StackPanel>
+    </Grid>
+</Window>

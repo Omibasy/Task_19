@@ -1,0 +1,103 @@
+﻿<Window x:Class="Task_20.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"      
+        xmlns:vm="clr-namespace:Task_20.ViewModel"
+        xmlns:vm1="clr-namespace:Task_20"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        MinHeight="550" 
+        MinWidth="800"
+        Height="527"
+        >
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.RowDefinitions >
+
+            <RowDefinition  Height="*"/>
+
+            <RowDefinition  MaxHeight="35" 
+                            MinHeight="35"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" 
+              Margin="5,5,5,10">
+            
+            <DataGrid x:Name="ListAnimal"                                    
+                      ItemsSource="{Binding ListOfAnimals}"
+                      AutoGenerateColumns="False"                                          
+                      CanUserAddRows="True"                    
+                      VerticalScrollBarVisibility="Visible"
+                      CanUserResizeColumns="False"
+                      CanUserResizeRows="False"
+                      HorizontalScrollBarVisibility="Disabled">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Тип животного"
+                                        Binding="{Binding ViewAnimal}"
+                                        Width="100*"
+                                        MinWidth="100"
+                                        IsReadOnly="True"/>
+
+                    <DataGridTextColumn Header="Кличка животного"
+                                        Binding="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Width="100*"
+                                        MinWidth="100"/>
+
+                    <DataGridTextColumn Header="Порода"
+                                        Binding="{Binding Breed, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Width="100*"
+                                        MinWidth="100"/>
+
+                    <DataGridTextColumn Header="Особенности"
+                                        Binding="{Binding Features, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                        Width="100*"
+                                        MinWidth="100"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <StackPanel Grid.Row="1"
+                    VerticalAlignment="Top">
+            <Grid>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Left">
+
+                    <Button x:Name="btnClic"                       
+                            Content="Добавить"
+                            Margin="10 0 10 10"
+                            Width="65"
+                            Height="25"
+                            Click="btnClic_Click"/>
+
+                    <Button Content="Удалить"                   
+                            Command="{Binding Path=DeleteCommand}"
+                            CommandParameter="{Binding SelectedItem, ElementName=ListAnimal}"
+                            Margin="0 0 0 10"
+                            Width="65"
+                            Height="25"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right">
+
+                    <Button Content="Загрузить"
+                            Width="65"
+                            Height="25"
+                            HorizontalAlignment="Right"
+                            Margin="0 0 10 10"
+                            Click="Button_Click"
+                            />
+
+                    <Button Content="Cохранить"
+                            Width="65"
+                            Height="25"
+                            HorizontalAlignment="Right"
+                            Margin="0 0 10 10"
+                            Click="Button_Click_1"
+                            Command="{Binding SaveCommand}"/>
+
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
