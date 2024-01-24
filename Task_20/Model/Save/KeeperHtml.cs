@@ -24,7 +24,16 @@ namespace Task_20.Model.Save
                     sw.WriteLine($"{line}#");
 
                 }
-                sw.WriteLine(BaseData[(BaseData.Length - 1)]);
+                try
+                {
+                    sw.WriteLine(BaseData[(BaseData.Length - 1)]);
+                }
+                catch 
+                {
+                    return;
+                  
+                }
+               
             }                  
         }
     }

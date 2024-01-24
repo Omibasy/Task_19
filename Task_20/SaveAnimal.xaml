@@ -68,7 +68,6 @@
                     <MultiBinding Converter="{StaticResource keyGGGG}">
                         <Binding Path="Text"   ElementName="NameFile"/>
                         <Binding Path="SelectedItem"  ElementName="FormaFile"/>
-                        <Binding Path="NameFileXXX"/>
                     </MultiBinding>
                 </Button.CommandParameter>
             </Button>

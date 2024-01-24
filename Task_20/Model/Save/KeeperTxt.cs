@@ -14,17 +14,23 @@ namespace Task_20.Model.Save
 
         public void SaveAnimal(Repository RepositoryAnimal)
         {
+            string[] data = RepositoryAnimal.EnumerationAnimals();
+
+            if (data.Length == 0)
+            {
+                return;
+            }
+
             using (StreamWriter sw = new StreamWriter($"{NameOfFile}.txt"))
             {
-                string[] BaseData = RepositoryAnimal.EnumerationAnimals();
 
-                for (int i = 0; i < BaseData.Length-1; i++)
+                for (int i = 0; i < data.Length-1; i++)
                 {
-                    string line = BaseData[i].Trim();
+                    string line = data[i].Trim();
                     sw.WriteLine($"{line}#");
 
                 }
-                sw.WriteLine(BaseData[(BaseData.Length - 1)]);
+                sw.WriteLine(data[(data.Length - 1)]);
             }
         }
     }

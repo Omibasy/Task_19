@@ -52,8 +52,8 @@
 
                     <DataGridTextColumn Header="Особенности"
                                         Binding="{Binding Features, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                        Width="100*"
-                                        MinWidth="100"/>
+                                        Width="120*"
+                                        MinWidth="120"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
@@ -93,8 +93,7 @@
                             Height="25"
                             HorizontalAlignment="Right"
                             Margin="0 0 10 10"
-                            Click="Button_Click_1"
-                            Command="{Binding SaveCommand}"/>
+                            Click="Button_Click_1"/>
 
                 </StackPanel>
             </Grid>

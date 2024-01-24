@@ -21,18 +21,22 @@ namespace Task_20.Model.Load
             {
                 string fullText = sr.ReadToEnd();
 
-                string[] rowsText = fullText.Split('#');
-
-                string[] textOfAnimal;
-
-                for (int i = 0; i < rowsText.Length; i++)
+                if (!(fullText.Length <= 2))
                 {
-                    textOfAnimal = rowsText[i].Split('|');
+                    string[] rowsText = fullText.Split('#');
 
-                    animals.Add(AnimalFactory.GetAnimal(textOfAnimal[0].Trim(),
-                                                        textOfAnimal[1].Trim(),
-                                                        textOfAnimal[2].Trim(),
-                                                        textOfAnimal[3].Trim()));
+                    string[] textOfAnimal;
+
+
+                    for (int i = 0; i < rowsText.Length; i++)
+                    {
+                        textOfAnimal = rowsText[i].Split('|');
+
+                        animals.Add(AnimalFactory.GetAnimal(textOfAnimal[0].Trim(),
+                                                            textOfAnimal[1].Trim(),
+                                                            textOfAnimal[2].Trim(),
+                                                            textOfAnimal[3].Trim()));
+                    }
                 }
             }
 
